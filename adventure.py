@@ -6,7 +6,8 @@ def prompt():
 		exit()
 	elif choice == "help":
 		print "Help comes to those who find it."
-		return "null"
+	elif choice == "sudo":
+		print "I'm sorry, root access is not available. Cheater."
 	else:
 		return choice
 def start():
