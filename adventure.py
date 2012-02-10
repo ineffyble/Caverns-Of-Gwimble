@@ -1,43 +1,57 @@
-def prompt():
-	choice = raw_input(">  ")
-
-	if choice == "exit":
+# Welcome to the Caverns of Gwimble adventure
+# By Robin 'Neoinr' Elden
+def space(amount): # easter egg :3
+        #Prints sp, the number of a's, and ce
+        print "%s%s%s" % ('Sp','a'*amount,'ce')
+def prompt(): # prompt that's called for input
+	choice = raw_input(">  ") # gets data from player -- NOTE: Change symbol?
+	if choice == "exit": # exit clause
 		print "Thank you for playing."
 		exit()
-	elif choice == "help":
+	elif choice == "help": # No help :P
 		print "Help comes to those who find it."
-	elif choice == "sudo":
+	elif choice == "sudo": # Easter eggs for the win
 		print "I'm sorry, root access is not available. Cheater."
+	elif "spa" in choice:
+		print "Greetings."
+		print "What is your favourite number?"
+		spacestr = raw_input("#  ")
+		spaceint = int(spacestr)
+		if spaceint == 42:
+			print "You chose the perfect number!"
+			space(42)
+			win("combining the meaning of life, the universe, and everything, with spaaaaace")
+		else:
+			space(spaceint)
 	else:
-		return choice
-def start():
+		return choice # Send back the choice
+def start(): # start message
 	print "Welcome to the Caverns of Gwimble adventure, by Robin Elden"
 	print "You wake up, slowly. As your thoughts crystalize, you realise you have no knowledge of who you are, or how you got here. You stand up off the stone floor and look around."
 	print "The room is bare. There is a torch, attached to the wall, giving off a dim light, and 3 doors, ahead, to the right, and left."
-	bare_room()
-def bare_room():
-	go = prompt()
-	if go == "Left" or go == "left":
+	bare_room() # To the first room
+def bare_room(): #first room
+	go = prompt() # gets the choice 
+	if go == "Left" or go == "left": # NOTE: Work out a capitilzation independent method?
 		print "As you go through the door, it slams behind you. You turn to look, but see only a blank section of wall behind you."
 		print "This room is an immense treasure room. Piles of gold and gems tower throughout. There is a sleeping dragon lying in the centre of the room. There is a small stick, and a heavy rock, resting by your feet. You consider throwing something at the dragon."
-		dragon_room()
-	elif go == "Right" or go == "right":
-		other_room()
-	elif go == "Forward" or go == "forward":
+		dragon_room() # puts the description beforehand so it's not repeated if invalid input
+	elif go == "Right" or go == "right": 
+		other_room() # not actually a room
+	elif go == "Forward" or go == "forward": 
 		forward_room()
-	elif go == "null":
-		bare_room()
 	else:
-		print "I do not understand your choice."
+		print "You are still here."
 		bare_room()
 
-def dragon_room():
+def dragon_room(): # NOTE: I should add more options
 	do = prompt()
 	if "stick" in do:
-		print "The stick vanishes before you able to do anything."
+		print "The stick vanished before you were able to do anything."
+		dragon_room()
 	if "rock" in do:
 		print "You pick up the rock. The dragon, hearing the noise, activates mind control"
-		free_your_mind()
+		free_your_mind() # and the rest will follow
 	if "eat" in do:
 		print "Eat what? The dragon looks a bit stringy."
 		dragon_room()
