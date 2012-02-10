@@ -12,13 +12,13 @@ def prompt(): # prompt that's called for input
 		print "Help comes to those who find it."
 	elif choice == "sudo": # Easter eggs for the win
 		print "I'm sorry, root access is not available. Cheater."
-	elif "spa" in choice:
+	elif "spa" in choice: # Portal for the win
 		print "Greetings."
 		print "What is your favourite number?"
-		spacestr = raw_input("#  ")
-		spaceint = int(spacestr)
+		spacestr = raw_input("#  ") # Get the string
+		spaceint = int(spacestr) # make the string into an integer
 		if spaceint == 42:
-			print "You chose the perfect number!"
+			print "You chose the perfect number!" # Hitchhiker's guide to the galaxy
 			space(42)
 			win("combining the meaning of life, the universe, and everything, with spaaaaace")
 		else:
@@ -100,9 +100,9 @@ def forward_room():
 	cake = prompt()
 	if cake == "cake":
 		print "VOICE: That is correct."
-		win("becoming immortal")
+		win("becoming immortal") # WIN!
 	else:
-		print "VOICE: That is not correct."
+		print "VOICE: That is not correct." # NOTE: Not sure about the VOICE
 		print "You feel your organs liquify, and lose consciousness"
-		die("being liquified")
+		die("being liquified") # NOTE: Would a deity liquify someone?
 start()
