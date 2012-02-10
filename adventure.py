@@ -49,12 +49,16 @@ def dragon_room(): # NOTE: I should add more options
 	if "stick" in do:
 		print "The stick vanished before you were able to do anything."
 		dragon_room()
-	if "rock" in do:
+	elif "rock" in do:
 		print "You pick up the rock. The dragon, hearing the noise, activates mind control"
 		free_your_mind() # and the rest will follow
-	if "eat" in do:
+	elif "eat" in do:
 		print "Eat what? The dragon looks a bit stringy."
 		dragon_room()
+	elif "take gold" in do:
+		print "You attempt to take some of the gold. The dragon stirs, instantly alert."
+		print "The last thing you feel is a blinding heat as you are incinerated."
+		die("being incinerated by dragonfire")
 	else:
 		print "I don't know what you mean"
 		dragon_room()
