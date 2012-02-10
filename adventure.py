@@ -12,12 +12,12 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
+import time
 def space(amount): # easter egg :3
         #Prints sp, the number of a's, and ce
         print "%s%s%s" % ('Sp','a'*amount,'ce')
 def prompt(): # prompt that's called for input
+ try:
 	choice = raw_input(">  ") # gets data from player -- NOTE: Change symbol?
 	if choice == "exit": # exit clause
 		print "Thank you for playing."
@@ -37,12 +37,15 @@ def prompt(): # prompt that's called for input
 			win("combining the meaning of life, the universe, and everything, with spaaaaace")
 		else:
 			space(spaceint)
+			return choice
 	else:
 		return choice # Send back the choice
+ except (KeyboardInterrupt, EOFError):
+	exit("Sorry to see you go :(")
 def start(): # start message
 	print "Welcome to the Caverns of Gwimble adventure, by Robin Elden"
 	print "You wake up, slowly. As your thoughts crystalize, you realise you have no knowledge of who you are, or how you got here. You stand up off the stone floor and look around."
-	print "The room is bare. There is a torch, attached to the wall, giving off a dim light, and 3 doors, ahead, to the right, and left."
+	print "The room is bare. There is a torch, attached to the wall, giving off a dim light, and 3 doors, ahead, to the right, left, and forward."
 	bare_room() # To the first room
 def bare_room(): #first room
 	go = prompt() # gets the choice 
@@ -54,10 +57,27 @@ def bare_room(): #first room
 		other_room() # not actually a room
 	elif go.upper() == 'FORWARD': 
 		forward_room()
+	elif go.upper() == 'LOOK':
+		print "I've already told you what you see."
+		bare_room()
+	elif go.upper() == 'LOOK CAREFULLY':
+		print 'You see a small stone button on one of the walls. The button says "Do not press me".'
+		bare_room()
+	elif go.upper() == 'PRESS BUTTON':
+		print "You suddenly realise why you shouldn't have pressed the button, as the whole universe fad-"
+		time.sleep(5)
+		alternate()
 	else:
 		print "You are still here."
 		bare_room()
-
+def alternate(): # Alternate reality
+	print "\fWelcome to the Gardens of Froob"
+	print "You spring out of bed, eyes alert and eager for the world beyond"
+	print "The room is colorful, full of paint and decorations" 
+	prompt()
+	print "Before you can do anything, you realise that something is wrong."
+	print "You should not be here, it feels alien to you."
+	die("existential crisis, consequences of meddling with the space-time continuum")
 def dragon_room(): # NOTE: I should add more options
 	do = prompt()
 	if "stick" in do:
@@ -90,6 +110,12 @@ def free_your_mind():
 		print "I said between 1 and 10, moron"
 		die("being a moron")
 def win(arg1):
+        print "."
+        time.sleep(0.3)
+        print "."
+        time.sleep(0.3)
+        print "."
+        time.sleep(0.3)
 	print "Congratulations. Your achievement, %s, has won you the game!" % arg1
 	print "What is your name?"
 	name = raw_input(">  ")
@@ -99,6 +125,12 @@ def win(arg1):
 	print "Thanks for completing Caverns of Gwimble"
 	exit()
 def die(arg2):
+	print "."
+	time.sleep(0.3)
+        print "."
+        time.sleep(0.3)
+        print "."
+        time.sleep(0.3)
 	print "You have died from: %s" % arg2
         print "What is your name?"
         name = raw_input(">  ")
