@@ -26,8 +26,10 @@ def prompt(): # prompt that's called for input
 		exit()
 	elif choice == "help": # No help :P
 		print "Help comes to those who find it."
+		return choice
 	elif choice == "sudo": # Easter eggs for the win
 		print "I'm sorry, root access is not available. Cheater."
+		return choice
 	elif "spa" in choice: # Portal for the win
 		print "Greetings."
 		print "What is your favourite number?"
