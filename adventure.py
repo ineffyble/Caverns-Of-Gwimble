@@ -119,17 +119,16 @@ def free_your_mind():
         To free your mind, you must think of a number between 1 and 10.
         If you guess right, you live.
         """
-        tehnum = str(random.randint(1, 10))
+        tehnum = random.randint(1, 10)
         print tehnum
         num = int(prompt())
-        print num
         if num == tehnum:
                 print """
                 You overcome the mind control and use your superior intellect to beat the dragon into submission.
                 The dragon falls over, dead.
         """
                 win("triumph over an evil dragon")
-        elif 1 >= num <= 10:
+        elif num >= 1 and num <= 10:
                 print "You guess wrong. The dragon overcomes your mind."
                 die("having your mind crushed by a dragon")
         else:
