@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#
 # Welcome to the Caverns of Gwimble adventure
 # Copyright (C) Robin 'Neoinr' Elden 2012
 #  This program is free software: you can redistribute it and/or modify
