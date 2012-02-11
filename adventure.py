@@ -57,8 +57,17 @@ def start(): # start message
 def bare_room(): #first room
 	go = prompt() # gets the choice 
 	if go.upper() == 'LEFT':
-		print "As you go through the door, it slams behind you. You turn to look, but see only a blank section of wall behind you."
-		print "This room is an immense treasure room. Piles of gold and gems tower throughout. There is a sleeping dragon lying in the centre of the room. There is a small stick, and a heavy rock, resting by your feet. You consider throwing something at the dragon."
+		print """
+		As you go through the door, it slams behind you. 
+		You turn to look, but see only a blank section of wall behind you.
+		"""
+		print """
+		This room is an immense treasure room. 
+		Piles of gold and gems tower throughout. 
+		There is a sleeping dragon lying in the center of the room. 
+		There is a small stick, and a heavy rock, resting by your feet. 
+		You consider throwing something at the dragon.
+		"""
 		dragon_room() # puts the description beforehand so it's not repeated if invalid input
 	elif go.upper() == 'RIGHT': 
 		other_room() # not actually a room
@@ -68,7 +77,8 @@ def bare_room(): #first room
 		print "I've already told you what you see."
 		bare_room()
 	elif go.upper() == 'LOOK CAREFULLY':
-		print 'You see a small stone button on one of the walls. The button says "Do not press me".'
+		print '''You see a small stone button on one of the walls.
+		The button says "Do not press me".'''
 		bare_room()
 	elif go.upper() == 'PRESS BUTTON':
 		print "You suddenly realise why you shouldn't have pressed the button, as the whole universe fad-"
@@ -105,13 +115,19 @@ def dragon_room(): # NOTE: I should add more options
 		dragon_room()
 		
 def free_your_mind():
-	print "To free your mind, you must think of a number between 1 and 10. If you guess right, you live."
+	print """
+	To free your mind, you must think of a number between 1 and 10.
+	If you guess right, you live.
+	"""
 	tehnum = str(random.randint(1, 10))
 	print tehnum
 	num = int(prompt())
 	print num
 	if num == tehnum:
-		print "You overcome the mind control and use your superior intellect to beat the dragon into submission. The dragon falls over, dead."
+		print """
+		You overcome the mind control and use your superior intellect to beat the dragon into submission.
+		The dragon falls over, dead.
+        """
 		win("triumph over an evil dragon")
 	elif 1 >= num <= 10:
 		print "You guess wrong. The dragon overcomes your mind."
