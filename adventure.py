@@ -141,7 +141,36 @@ def die(arg2):
 	exit()
 def other_room():
 	print "There is no door, only Zuul"
-	bare_room()
+	print "The Door Network apologises for any inconvience, but this door is temporarily phased out of existence."
+	print "If you have a manual override code, please enter it now:"
+	code = prompt()
+	print code
+	if code == "1337":
+		print "Code accepted."
+		print "Please select destination:"
+		print "1. Starting room"
+		print "2. Dragon room"
+		print "3. Deity room"
+		print "4. Alternate reality"
+		print "5. Space"
+		des = prompt()
+		if des == "1":
+			bare_room()
+		elif des == "2":
+			dragon_room()
+		elif des == "3":
+			forward_room()
+		elif des == "4":
+			alternate()
+		elif des == "5":
+			space()
+		else:
+			print "Invalid destination"
+			other_room()
+	else:
+		print "I'm sorry, that code is incorrect."
+		print "You are teleported back to the starting room" 
+		bare_room()
 def forward_room():
 	print "You step forward, into a room of pure white light. You hear a booming voice."
 	print "VOICE: Congratulations, young adventurer."
@@ -155,4 +184,11 @@ def forward_room():
 		print "VOICE: That is not correct." # NOTE: Not sure about the VOICE
 		print "You feel your organs liquify, and lose consciousness"
 		die("being liquified") # NOTE: Would a deity liquify someone?
+def space():
+	print "\f"
+	print "You are in space"
+	time.sleep(1)
+	print "You are suffocating..."
+	time.sleep(1)
+	die("lack of oxygen")
 start()
