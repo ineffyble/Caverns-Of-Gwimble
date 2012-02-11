@@ -15,6 +15,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import time
+import random
 def space(amount): # easter egg :3
         #Prints sp, the number of a's, and ce
         print "%s%s%s" % ('Sp','a'*amount,'ce')
@@ -105,11 +106,14 @@ def dragon_room(): # NOTE: I should add more options
 		
 def free_your_mind():
 	print "To free your mind, you must think of a number between 1 and 10. If you guess right, you live."
-	num = prompt()
-	if num == "7":
+	tehnum = str(random.randint(1, 10))
+	print tehnum
+	num = int(prompt())
+	print num
+	if num == tehnum:
 		print "You overcome the mind control and use your superior intellect to beat the dragon into submission. The dragon falls over, dead."
 		win("triumph over an evil dragon")
-	if num == "1" or num == "2" or num == "3" or num == "4" or num == "5" or num == "6" or num == "8" or num =="9" or num == "10":
+	elif 1 >= num <= 10:
 		print "You guess wrong. The dragon overcomes your mind."
 		die("having your mind crushed by a dragon")
 	else:
