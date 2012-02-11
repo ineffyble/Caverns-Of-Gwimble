@@ -44,7 +44,9 @@ def prompt(): # prompt that's called for input
 	exit("Sorry to see you go :(")
 def start(): # start message
 	print "Welcome to the Caverns of Gwimble adventure, by Robin Elden"
+	time.sleep(0.5)
 	print "You wake up, slowly. As your thoughts crystalize, you realise you have no knowledge of who you are, or how you got here. You stand up off the stone floor and look around."
+	time.sleep(1)
 	print "The room is bare. There is a torch, attached to the wall, giving off a dim light, and 3 doors, ahead, to the right, left, and forward."
 	bare_room() # To the first room
 def bare_room(): #first room
@@ -163,7 +165,7 @@ def other_room():
 		elif des == "4":
 			alternate()
 		elif des == "5":
-			space()
+			inspace()
 		else:
 			print "Invalid destination"
 			other_room()
@@ -184,11 +186,12 @@ def forward_room():
 		print "VOICE: That is not correct." # NOTE: Not sure about the VOICE
 		print "You feel your organs liquify, and lose consciousness"
 		die("being liquified") # NOTE: Would a deity liquify someone?
-def space():
-	print "\f"
+def inspace():
+	print "\f" #Clear the screen to indicate change of location
 	print "You are in space"
 	time.sleep(1)
 	print "You are suffocating..."
 	time.sleep(1)
 	die("lack of oxygen")
+print "\f" # Clear the screen
 start()
