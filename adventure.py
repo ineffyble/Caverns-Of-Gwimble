@@ -57,17 +57,13 @@ def start(): # start message
 def bare_room(): #first room
         go = prompt() # gets the choice 
         if go.upper() == 'LEFT':
-                print """
-                As you go through the door, it slams behind you. 
-                You turn to look, but see only a blank section of wall behind you.
-                """
-                print """
-                This room is an immense treasure room. 
-                Piles of gold and gems tower throughout. 
-                There is a sleeping dragon lying in the center of the room. 
-                There is a small stick, and a heavy rock, resting by your feet. 
-                You consider throwing something at the dragon.
-                """
+                print """As you go through the door, it slams behind you. 
+You turn to look, but see only a blank section of wall behind you."""
+                print """This room is an immense treasure room. 
+Piles of gold and gems tower throughout. 
+There is a sleeping dragon lying in the center of the room. 
+There is a small stick, and a heavy rock, resting by your feet. 
+You consider throwing something at the dragon."""
                 dragon_room() # puts the description beforehand so it's not repeated if invalid input
         elif go.upper() == 'RIGHT': 
                 other_room() # not actually a room
