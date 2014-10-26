@@ -92,8 +92,13 @@ def alternate(): # Alternate reality
         print "Before you can do anything, you realise that something is wrong."
         print "You should not be here, it feels alien to you."
         die("existential crisis, consequences of meddling with the space-time continuum")
+
 def dragon_room(): # NOTE: I should add more options
         do = prompt()
+        if dragon_room.hugged and dragon_room.friend:
+                print "Before you have a chance, the dragon's eyelids fly open! A flicker of flame melts away the wall behind you, and you hear a voice echo in your mind, thanking you for your kindness. The two of you decide to leave the caverns together, in search of your next adventure."
+                win("being nice to an ancient dragon")
+
         if "stick" in do:
                 print "The stick vanished before you were able to do anything."
                 dragon_room()
@@ -107,9 +112,20 @@ def dragon_room(): # NOTE: I should add more options
                 print "You attempt to take some of the gold. The dragon stirs, instantly alert."
                 print "The last thing you feel is a blinding heat as you are incinerated."
                 die("being incinerated by dragonfire")
+        elif "hug" in do or "cuddle" in do:
+                print "You cautiously approach the great sleepy beast. An eyelid raises, and a vast clawed limb stretches out, pulling you close to it. You find the warmth of the dragon's belly comforting."
+                dragon_room.hugged = True
+                dragon_room()
+        elif "be friends with" in do:
+                print "You sit with the dragon and tell her of your troubles. Being an enormous fire-breathing winged reptile and thousands of years old, she has little point of reference from which to understand, but she tries very hard anyway."
+                dragon_room.friend = True
+                dragon_room()
         else:
                 print "I don't know what you mean"
                 dragon_room()
+
+dragon_room.hugged = False
+dragon_room.friend = False
                 
 def free_your_mind():
         print """
